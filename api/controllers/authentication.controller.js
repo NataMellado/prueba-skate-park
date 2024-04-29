@@ -2,7 +2,6 @@ import 'dotenv/config';
 import jwt from 'jsonwebtoken';
 import { query } from '../../db/queries/queries.js';
 import path from 'path';
-const __dirname = "https://prueba-skate-park.onrender.com/"
 
 
 // Controller para loguear a un usuario
@@ -52,7 +51,7 @@ async function register (req, res) {
 
         // Foto
         const foto = req.files.foto;
-        const fotoPath = path.join('upload', `${Date.now()}_${foto.name}`);
+        const fotoPath = path.resolve('public', 'upload', `${Date.now()}_${foto.name}`);
         await foto.mv(fotoPath);
 
         // Crear un nuevo usuario
