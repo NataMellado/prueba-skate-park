@@ -15,7 +15,7 @@ app.listen(PORT, () => { console.log(`Server is running on port http://localhost
 // Configuración de middlewares
 app.use(express.json()); 
 app.use(cookieParser());
-app.use("/public", express.static(path.resolve("public")));
+app.use(express.static('public')); 
 app.use(express.urlencoded({ extended: false }));
 app.use(
   fileUpload({
