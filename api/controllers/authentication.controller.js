@@ -51,7 +51,7 @@ async function register (req, res) {
 
         // Foto
         const foto = req.files.foto;
-        const fotoPath = path.resolve('public', 'upload', `${Date.now()}_${foto.name}`);
+        const fotoPath = path.join('public', 'upload', foto.name);
         await foto.mv(fotoPath);
 
         // Crear un nuevo usuario
