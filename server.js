@@ -1,5 +1,5 @@
 import express from 'express';
-import routes from './src/routes/routes.js';
+import router from './api/routes/routes.js';
 import { engine } from "express-handlebars";
 import path from "path";
 import fileUpload from 'express-fileupload'
@@ -16,15 +16,12 @@ app.listen(PORT, () => { console.log(`Server is running on port http://localhost
 app.use(express.json()); 
 app.use(cookieParser());
 app.use(express.static('public')); 
-app.use(express.static(path.join(__dirname, "/views")));
-app.use(express.static(path.join(__dirname, "/public")));
-app.use("/css", express.static(__dirname + "/node_modules/bootstrap/dist/css"));
-app.use(express.urlencoded({ extended: false })); // Para que pueda recibir datos de formularios en req.body 
+app.use(express.urlencoded({ extended: false }));
 app.use(
   fileUpload({
-    limits: 5000000,
+    limits: 5000000, 
     abortOnLimit: true,
-    responseOnLimit: "El tamaño de la imagen supera el límite permitido",
+    responseOnLimit: "El tamaño de la imagen supera el límite permitido de 5MB",
   })
 );
 
@@ -40,4 +37,4 @@ app.engine(
 );
 
 // Rutas de la API REST
-app.use('/api', routes);
+app.use('/', router);
