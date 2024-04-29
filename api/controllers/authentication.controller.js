@@ -2,6 +2,7 @@ import 'dotenv/config';
 import jwt from 'jsonwebtoken';
 import { query } from '../../db/queries/queries.js';
 import path from 'path';
+import  { v4 as uuidv4 } from 'uuid';
 
 
 // Controller para loguear a un usuario
@@ -51,7 +52,8 @@ async function register (req, res) {
 
         // Foto
         const foto = req.files.foto;
-        const fotoPath = path.join('upload', `${Date.now()}_${foto.name}`);
+        const fotoName = `${uuidv4().slice(0, 6)}.jpg`
+        const fotoPath = path.resolve('public', 'images', fotoName);
         await foto.mv(fotoPath);
 
         // Crear un nuevo usuario
