@@ -4,7 +4,7 @@ import { engine } from "express-handlebars";
 import path from "path";
 import fileUpload from 'express-fileupload'
 import cookieParser from 'cookie-parser';
-process.loadEnvFile(); 
+// process.loadEnvFile(); 
 const __dirname = path.resolve();
 
 // Server
