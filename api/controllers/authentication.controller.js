@@ -52,7 +52,7 @@ async function register (req, res) {
 
         // Foto
         const foto = req.files.foto;
-        const fotoPath = path.join(__dirname, 'upload', `${Date.now()}_${foto.name}`);
+        const fotoPath = path.join('upload', `${Date.now()}_${foto.name}`);
         await foto.mv(fotoPath);
 
         // Crear un nuevo usuario
@@ -77,7 +77,7 @@ async function register (req, res) {
             return res.status(400).json({ error: `El campo supera el límite de caracteres permitidos.` });
 
         } else { // Otros errores
-            return res.status(500).json({ error: 'Error en el servidor.' });
+            return res.status(500).json({ error: 'Error en el servidor: ' + error});
         }
     }
 }
