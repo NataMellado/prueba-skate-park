@@ -4,7 +4,7 @@ import { engine } from "express-handlebars";
 import path from "path";
 import cookieParser from 'cookie-parser';
 import fileUpload from 'express-fileupload';
-// process.loadEnvFile();
+process.loadEnvFile(); // Comentar esta línea al hacer deploy en Render
 
 // Server
 const app = express();
@@ -19,17 +19,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 
 // Configuración de fileUpload
-const MIMETPES = ['image/jpeg', 'image/png', 'image/jpg'];
-const uploadMiddleware = fileUpload({
-    fileFilter: (req, file, cb) => {
-        if (MIMETPES.includes(file.mimetype)) cb(null, true);
-        else cb(new Error(`El archivo debe ser de tipo ${MIMETPES.join(', ')}`));      
-    },
-    limits: 10000000, 
-    abortOnLimit: true,
-    responseOnLimit: "El tamaño de la imagen supera el límite permitido de 10MB",
-  });
-app.use(uploadMiddleware);
+app.use(fileUpload());
 
 // Configuración de handlebars
 app.set("view engine", "handlebars");

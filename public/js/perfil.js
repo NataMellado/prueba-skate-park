@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         })
         .then(data => {
+            document.getElementById("foto").setAttribute("src", data.foto);
+            console.log(data.foto);
             document.getElementById("email").value = data.email;
             document.getElementById("nombre").value = data.nombre;
             document.getElementById("especialidad").value = data.especialidad;

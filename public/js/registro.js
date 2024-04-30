@@ -19,6 +19,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const anos_experiencia = document.getElementById('experiencia').value;
             const foto = document.getElementById('foto').files[0];
 
+            // Verificar si se ha seleccionado una foto que no exceda los 10 MB y que solo sea de tipo .jpg, .jpeg o .png
+            if (!foto) {
+                errorMessage.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i>' + ' ' + 'No se ha enviado ninguna imagen';
+                return;
+            } else if (foto.size > 10 * 1024 * 1024) {
+                errorMessage.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i>' + ' ' + 'El archivo que intenta subir excede el límite de tamaño (10 MB)';
+                return;
+            } else if (!['image/jpg', 'image/jpeg', 'image/png'].includes(foto.type)) {
+                errorMessage.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i>' + ' ' + 'El archivo que intenta subir no es una imagen .jpg, .jpeg o .png';
+                return;
+            }
+
             // Crear un objeto FormData
             const datos = JSON.stringify({ nombre, email, contraseña, anos_experiencia, especialidad});
             const formData = new FormData();

@@ -7,7 +7,7 @@ import { logoutController } from '../controllers/logout.controller.js';
 
 const router = express.Router()
 
-// Rutas del front
+// Rutas principales
 router.get('/ping', ping);
 router.get('/', (req, res) => res.render('Home'));
 router.get('/registro', authMiddleware.soloPublico , (req, res) => res.render('Registro'));
