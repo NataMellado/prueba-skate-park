@@ -3,13 +3,13 @@ import { ping } from '../controllers/ping.controller.js';
 import { methods as skateController } from '../controllers/skater.controller.js';
 import { methods as authController } from '../controllers/authentication.controller.js';
 import { methods as authMiddleware } from '../middlewares/authorization.js';
-import { logout as logoutController } from '../controllers/logout.controller.js';
+import { logoutController } from '../controllers/logout.controller.js';
 
 const router = express.Router()
 
 // Rutas del front
 router.get('/ping', ping);
-router.get('/', authMiddleware.soloPublico , (req, res) => res.render('Home'));
+router.get('/', (req, res) => res.render('Home'));
 router.get('/registro', authMiddleware.soloPublico , (req, res) => res.render('Registro'));
 router.get('/login',  authMiddleware.soloPublico ,(req, res) => res.render('Login'));
 router.get('/admin', (req, res) => res.render('Admin'));

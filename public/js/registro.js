@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!response.ok) {
                     const errorData = await response.json();
                     errorMessage.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i>' + ' ' + errorData.error;
-                    registerForm.reset();
+       
                     return;
                 } else {
                     console.log('Usuario registrado:', email);

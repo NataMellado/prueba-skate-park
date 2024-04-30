@@ -1,5 +1,5 @@
 // Controller para cerrar la sesión del usuario
-export const logout = (req, res) => {
+export const logoutController = (req, res) => {
     try {
       // Eliminar la cookie de token en la respuesta
       res.clearCookie('token', { path: '/' });

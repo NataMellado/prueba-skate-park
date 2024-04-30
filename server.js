@@ -2,29 +2,34 @@ import express from 'express';
 import router from './api/routes/routes.js';
 import { engine } from "express-handlebars";
 import path from "path";
-import fileUpload from 'express-fileupload'
 import cookieParser from 'cookie-parser';
-// process.loadEnvFile(); 
-const __dirname = path.resolve();
+import fileUpload from 'express-fileupload';
+// process.loadEnvFile();
 
 // Server
 const app = express();
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => { console.log(`Server is running on port http://localhost:${PORT}`); });
+const __dirname = path.resolve();
 
 // Configuración de middlewares
 app.use(express.json()); 
 app.use(cookieParser());
 app.use(express.static('public')); 
 app.use(express.urlencoded({ extended: false }));
-app.use(
-  fileUpload({
-    limits: 5000000, 
-    abortOnLimit: true,
-    responseOnLimit: "El tamaño de la imagen supera el límite permitido de 5MB",
-  })
-);
 
+// Configuración de fileUpload
+const MIMETPES = ['image/jpeg', 'image/png', 'image/jpg'];
+const uploadMiddleware = fileUpload({
+    fileFilter: (req, file, cb) => {
+        if (MIMETPES.includes(file.mimetype)) cb(null, true);
+        else cb(new Error(`El archivo debe ser de tipo ${MIMETPES.join(', ')}`));      
+    },
+    limits: 10000000, 
+    abortOnLimit: true,
+    responseOnLimit: "El tamaño de la imagen supera el límite permitido de 10MB",
+  });
+app.use(uploadMiddleware);
 
 // Configuración de handlebars
 app.set("view engine", "handlebars");
@@ -38,3 +43,5 @@ app.engine(
 
 // Rutas de la API REST
 app.use('/', router);
+
+
