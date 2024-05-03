@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById("nombre").value = data.nombre;
             document.getElementById("especialidad").value = data.especialidad;
             document.getElementById("experiencia").value = data.anos_experiencia;
-            // document.getElementById("foto").value = data.foto;
         })
         .catch(error => {
             console.error('Error al obtener datos del usuario:', error);

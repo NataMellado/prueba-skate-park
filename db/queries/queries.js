@@ -70,7 +70,7 @@ const deleteSkater = async (email) => {
     }
 }
 
-// Consulta para actualizar un skater
+// Consulta para actualizar los datos de un skater
 const updateSkater = async (email, updatedUser) => {
     try {
         const query = {

@@ -2,32 +2,41 @@
     
     <div class="container">
 
+        <!-- Perfil -->
         <form id="profileForm">
             <div class="datos-container">
+                <!-- Foto de perfil -->
                 <div class="img_container">
                     <img id="foto" src="" alt="Foto de perfil">
                 </div>
+                <!-- Botón de cerrar sesión -->
                 <button id="logoutBtn" class="btn-style">Cerrar sesión<i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+                <!-- Email -->
                 <div class="input-container">
                     <label>Email</label>
                     <input id="email" name="email" class="form-control" readonly />
                 </div>
+                <!-- Nombre -->
                 <div class="input-container">
                     <label>Nombre</label>
                     <input id="nombre" name="nombre" class="form-control" required />
                 </div>
+                <!-- Contraseña -->
                 <div class="input-container">
                     <label>Contraseña</label>
                     <input id="contraseña" name="password" type="password" class="form-control" required />
                 </div>
+                <!-- Repetir contraseña -->
                 <div class="input-container">
                     <label>Repita la contraseña</label>
                     <input id="contraseña2" type="password" class="form-control" required/>
                 </div>
+                <!-- Años de experiencia -->
                 <div class="input-container">
                     <label>Años de experiencia</label>
                     <input id="experiencia" name="experiencia" class="form-control" required/>
                 </div>
+                <!-- Especialidad -->
                 <div class="input-container">
                     <label>Especialidad</label>
                     <select id="especialidad" name="especialidad" class="form-control" required />
@@ -46,6 +55,7 @@
                 </div>
             </div>
 
+            <!-- Botones de actualizar y eliminar cuenta -->
             <button type="submit" class="btn" id="updateBtn">Actualizar datos</button>
             <p id="errorMessage"></p>
             <button class="btn" id="deleteBtn">Eliminar cuenta</button>

@@ -4,7 +4,7 @@ import { engine } from "express-handlebars";
 import path from "path";
 import cookieParser from 'cookie-parser';
 import fileUpload from 'express-fileupload';
-// process.loadEnvFile(); // Comentar esta línea al hacer deploy en Render
+process.loadEnvFile(); // Comentar esta línea al hacer deploy en Render
 
 // Server
 const app = express();

@@ -59,6 +59,8 @@ async function updateSkater (req, res) {
     }
 }
 
+
+
 // Controller para cambiar el estado de un skater
 async function skaterStatus (req, res) {
     const id = req.body.id;
@@ -73,7 +75,6 @@ async function skaterStatus (req, res) {
         res.status(500).send(error.message);
     }
 }
-
 
 
 
