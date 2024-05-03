@@ -1,0 +1,38 @@
+.main-admin {
+  padding: 7rem 1rem 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
+}
+
+.main-admin h1 {
+  font-size: clamp(var(--fs-24), 2vw, var(--fs-32));
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.main-admin button {
+  margin-bottom: 2rem;
+  background-color: var(--clr-pr);
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 2rem;
+  padding: 0.5rem;
+  font-size: var(--fs-16);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.main-admin button:hover {
+  transform: scale(1.02);
+}
+
+.main-admin .tabla-participantes td:first-child {
+  border-radius: 5rem 0 0 5rem;
+  padding-left: 0;
+}
+
+.main-admin .tabla-participantes td:last-child {
+  padding-right: 2rem;
+  border-radius: 0 5rem 5rem 0;
+}

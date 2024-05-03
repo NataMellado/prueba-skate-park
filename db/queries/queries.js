@@ -24,6 +24,22 @@ const getSkaters = async () => {
     }
 };
 
+// Consulta para obtener un skater por email
+const getSkater = async (email) => {
+    try {
+        const query = {
+            text: 'SELECT * FROM skaters WHERE email = $1',
+            values: [email]
+        };
+        const response = await pool.query(query);
+        return response.rows[0];
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+}
+
+
 // Consulta para añadir un nuevo skater
 const addSkater = async (newUser) => {
     try {
@@ -69,12 +85,13 @@ const updateSkater = async (email, updatedUser) => {
     }
 }
 
-// Consulta para obtener un skater por email
-const getSkater = async (email) => {
+
+// Consulta para actualizar el estado de un skater
+const changeStatus = async (id, estado) => {
     try {
         const query = {
-            text: 'SELECT * FROM skaters WHERE email = $1',
-            values: [email]
+            text: 'UPDATE skaters SET estado = $1 WHERE id = $2',
+            values: [estado, id]
         };
         const response = await pool.query(query);
         return response.rows[0];
@@ -84,6 +101,17 @@ const getSkater = async (email) => {
     }
 }
 
+// Consulta para obtener todos los administradores
+const getAdmins = async () => {
+    try {
+        const query = { text: 'SELECT * FROM administradores' };
+        const response = await pool.query(query);
+        return response.rows;
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+};
 
 export const query = { 
     ping,
@@ -91,7 +119,9 @@ export const query = {
     addSkater,
     deleteSkater,
     updateSkater,
-    getSkater
+    getSkater,
+    getAdmins,
+    changeStatus
 };
 
 

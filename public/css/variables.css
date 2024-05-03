@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'Skaters';
+    src: url('../fonts/Skaters.ttf') format('truetype');
+}
+
+:root {
+    /* Fuente */
+    --ff-logo: 'Skaters', Arial, sans-serif;
+    --ff-pr: 'Open Sans', Arial, sans-serif;
+
+    /* Colores */
+    --clr-pr: #00FFCE;
+
+    /* Tamaños */
+    --fs-12: 0.75rem;
+    --fs-13 : 0.8125rem;
+    --fs-14: 0.875rem;
+    --fs-16: 1rem;
+    --fs-18: 1.125rem;
+    --fs-20: 1.25rem;
+    --fs-24: 1.5rem;
+    --fs-28: 1.75rem;
+    --fs-32: 2rem;
+    --fs-40: 2.5rem;
+    --fs-48: 3rem;
+    --fs-60: 3.75rem;
+    --fs-120: 7.5rem;
+}

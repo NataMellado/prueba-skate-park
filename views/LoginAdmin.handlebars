@@ -1,0 +1,30 @@
+<main class="main_login">
+<div class="main_card">
+
+  <!-- Formulario de ingreso -->
+  <div class="login_header">
+    <h1>Login Administrador</h1>    
+    <a href="/login">| Skater</a>
+  </div>  
+
+  <form id="loginForm">
+    <!-- Email -->
+    <div class="form_email__container">
+      <div class="input_container">
+        <input type="text" id="email" name="email" class="form-control" required autocomplete="username" placeholder="Email" oninput="this.value = this.value.toLowerCase()"/>
+      </div>
+    </div>
+    <!-- Password -->
+    <div class="form_pass__container">
+      <div class="input_container">
+        <input type="password" id="password" name="password" class="form-control" required autocomplete="current-password" placeholder="Contraseña"/>
+      </div>
+    </div>
+    <!-- Boton de ingreso -->
+    <button type="submit" class="btn btn-style">Ingresar</button>
+    <p id="errorMessage"></p>
+  </form>
+
+
+</div>
+</main>

@@ -1,34 +1,39 @@
+/* improtar estilos css de components */
+@import url(./variables.css);
+@import url(./components/admin.css);
+@import url(./components/home.css);
+@import url(./components/login.css);
+@import url(./components/register.css);
+@import url(./components/perfil.css);
+@import url(./components/navbar.css);
+@import url(./components/404.css);
+@import url(./components/participantes.css);
+@import url(./components/loginAdmin.css);
+
+/*reset css*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--ff-pr);
+}
+
+html {
+  color: white;
+}
+
 body {
-  background: #ffdc43;
-  color: #4a4a4a;
-  text-shadow: 0px 0px 1px black;
-  font-family: sans-serif;
+  background-color: rgb(33, 33, 33);
+  color: white;
+  min-height: 100dvh;
+  display: grid;
+}
+
+#errorMessage {
+  color: var(--clr-pr);
   text-align: center;
-  padding: 40px 100px;
 }
 
-h1 {
-  font-style: italic;
-}
-td,
-th {
-  vertical-align: middle !important;
-}
-td div {
-  background-size: cover;
-  width: 60px;
-  height: 60px;
-}
-
-a {
-  color: black;
-    text-decoration: none;
-
-}
-a:hover {
-  text-decoration: none;
-}
-
-input {
-  text-align: center;
+button {
+  font-weight: 600;
 }

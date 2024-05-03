@@ -1,4 +1,7 @@
-import './home.js'
+import './participantes.js'
 import './login.js'
 import './registro.js'
 import './perfil.js'
+import './loginAdmin.js'
+import './admin.js'
+import './navbar.js'

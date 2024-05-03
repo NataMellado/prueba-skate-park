@@ -59,6 +59,21 @@ async function updateSkater (req, res) {
     }
 }
 
+// Controller para cambiar el estado de un skater
+async function skaterStatus (req, res) {
+    const id = req.body.id;
+    const estado = req.body.estado;
+    console.log('Id:', id, 'Estado:', estado);
+    try {
+        const skater = await query.changeStatus(id, estado);
+        console.log('Estado del usuario actualizado correctamente. Id:', id);
+        res.status(200).send('Estado del usuario actualizado correctamente');
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error.message);
+    }
+}
+
 
 
 
@@ -66,6 +81,6 @@ export const methods = {
     getSkaters,
     deleteSkater,
     getSkater,
-    updateSkater
-
+    updateSkater,
+    skaterStatus
 }

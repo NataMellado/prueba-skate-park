@@ -2,7 +2,7 @@ import 'dotenv/config';
 import jwt from 'jsonwebtoken';
 import { query } from '../../db/queries/queries.js';
 import  { v4 as uuidv4 } from 'uuid';
-import path from 'path';
+
 
 
 // Controller para registrar a un usuario
@@ -55,7 +55,7 @@ async function register (req, res) {
 
 
 
-// Controller para loguear a un usuario
+// Controller para loguear a un skater
 async function login (req, res) {
     try {
         const { email, password } = req.body;
@@ -90,10 +90,49 @@ async function login (req, res) {
     }
 }
 
+// Controller para loguear a un administrador
+async function loginAdmin (req, res) {
+    try {
+        const { email, password } = req.body;
+        const administradores = await query.getAdmins();
+        
+        // Buscar al usuario en la lista basándose en el email y la contraseña
+        const user = administradores.find(admin => admin.email === email && admin.contraseña === password);
+
+        if (!user) {
+            console.log('Usuario o clave incorrecta');
+            return res.status(401).json({ error: "Usuario o clave incorrecta" });
+        }
+
+         // Generar un token de autenticación
+        const token = jwt.sign(
+            { email }, 
+            process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRATION });
+        const cookieOption = {
+            expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRATION * 60 *1000),
+            path: '/',
+            httpOnly: true
+        }
+
+        // Enviar una respuesta exitosa con el token 
+        res.cookie('token', token, cookieOption);
+        res.send({status: 'success', message: "Usuario logueado"})
+        console.log(`Usuario ${email} logueado correctamente`);
+        
+    } catch (error) {
+        console.error('Error en signIn:', error);
+        res.status(500).json({ error: 'Error en el servidor: ' + error });
+    }
+}
+
+
+
+
 
 
 
 export const methods = {
     login,
-    register
+    register,
+    loginAdmin
 }

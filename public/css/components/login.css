@@ -1,0 +1,86 @@
+.main_login{
+    padding: 6rem 2rem 2rem 2rem;
+  }
+
+.login_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.login_header h1 {
+    font-size: var(--fs-24);
+}
+
+.login_header a {
+    font-size: var(--fs-14);
+    font-weight: 400;
+    text-decoration: none;
+    color: white;
+}
+
+#loginForm {
+    display: grid;
+    gap: 1.5rem;
+}
+
+
+
+#loginForm input {
+    color:white;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid var(--clr-pr);
+    border-radius: 2rem;
+    padding: 0.7rem;
+    font-size: var(--fs-16);
+}
+
+#loginForm input::placeholder {
+    color: white;
+}
+
+
+#loginForm button {
+    background-color: var(--clr-pr);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    font-size: var(--fs-16);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+#loginForm button:hover {
+    transform: scale(1.02);
+}
+
+#loginForm p{
+    text-align: center;
+}
+
+#loginForm a{
+    color: var(--clr-pr);
+    text-decoration: none;
+}
+
+@media screen and (min-width: 768px){
+
+
+    .main_login{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main_login .main_card{
+        max-width: 400px;
+        width: 100%;
+    }
+    
+}
+
+

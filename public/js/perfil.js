@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 method: "POST", 
                 headers: { "Content-Type": "application/json" },
               });
+              localStorage.removeItem("email");
               document.cookie = "token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT;";
               document.location.href = "/";
             } catch (error) {

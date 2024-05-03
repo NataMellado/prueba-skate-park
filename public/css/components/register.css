@@ -1,0 +1,86 @@
+.main_registro{
+    padding: 6rem 2rem 2rem 2rem;
+  }
+
+#registerForm {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.register_title {
+    font-size: var(--fs-24);
+    margin-bottom: 2rem;
+}
+
+
+#registerForm select, 
+#registerForm input {
+    color:white;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid var(--clr-pr);
+    border-radius: 2rem;
+    padding: 0.7rem;
+    font-size: var(--fs-16);
+}
+
+#registerForm .option {
+    color:rgb(56, 56, 56)
+}
+
+#registerForm input::placeholder {
+    color: white;
+}
+
+#registerForm .foto-title {
+    font-size: var(--fs-18);
+    font-weight: bold;
+}
+
+#registerForm .foto_input {
+    border: none;
+}
+
+#registerForm button {
+    background-color: var(--clr-pr);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    font-size: var(--fs-16);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+#registerForm button:hover {
+    transform: scale(1.02);
+}
+
+.custom-file-label {
+    display: inline-block;
+    background-color: gray;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+.foto_input {
+display: none; 
+}
+
+@media screen and (min-width: 768px){
+
+
+    .main_registro{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main_registro .main_card{
+        max-width: 400px;
+        width: 100%;
+    }
+    
+}
