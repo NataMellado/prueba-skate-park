@@ -8,7 +8,7 @@
 
     <!-- Email -->
     <div>
-        <input type="text" id="email" name="email" class="form-control" required autocomplete="email" placeholder="Email" oninput="this.value = this.value.toLowerCase()">
+        <input type="email" id="email" name="email" class="form-control" required autocomplete="email" placeholder="Email" oninput="this.value = this.value.toLowerCase()">
     </div>
     <!-- Nombre -->
     <div>
@@ -45,8 +45,8 @@
     <!-- Foto de perfil -->
     <p class="foto-title">Foto de perfil</p>
     <div>
-      <label class="custom-file-label" for="foto">Seleccionar archivo</label>
-      <input type="file" id="foto" name="foto" class="form-control foto_input" required autocomplete="foto" placeholder="Foto de perfil"/>
+      {{!-- <label class="custom-file-label" for="foto">Seleccionar archivo</label> --}}
+      <input type="file" id="foto" name="foto" class="form-control foto_input" required />
     </div>
     
     <!-- Boton de ingreso -->

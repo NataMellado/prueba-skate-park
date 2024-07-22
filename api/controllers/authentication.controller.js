@@ -9,8 +9,9 @@ import  { v4 as uuidv4 } from 'uuid';
 async function register (req, res) {
 
     try {
-        if (!req.files) {
-            return res.status(400).json({ error: 'No se ha enviado ninguna imagen' });
+        if (!req.files || !req.files.foto) {
+            console.log('La foto es requerida');
+            return res.status(400).json({ error: 'La foto es requerida' });
         }
 
 
@@ -38,6 +39,10 @@ async function register (req, res) {
    
     } catch (error) {
         console.error('Error en signUp:', error);
+     
+        if (error.code === 'ECONNRESET' || error.code === 'ECONNREFUSED') {   // Identificar errores de conexión
+            return res.status(500).json({ error: 'Error de conexión con la base de datos.' });
+        }
         if (error.code === '23505') { // Error de violación de unicidad
             return res.status(400).json({ error: 'El correo electrónico ya está registrado.' });
 
